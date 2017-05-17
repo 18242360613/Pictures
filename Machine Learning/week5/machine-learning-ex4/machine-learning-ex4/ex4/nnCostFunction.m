@@ -86,7 +86,7 @@ error2 = (error2_1(:,2:end)) .* sigmoidGradient(z2);
 Theta1_grad = error2' * a1;
 Theta2_grad = error3' * a2;
 
-
+%加入正则项
 Theta1_grad = Theta1_grad/m+[zeros(hidden_layer_size,1) lambda*Theta1(:,2:end)/m];
 Theta2_grad = Theta2_grad/m+[zeros(num_labels,1) lambda*Theta2(:,2:end)/m];
 
